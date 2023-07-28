@@ -1,0 +1,779 @@
+bufferSize: 2048
+language: en
+pages:
+-
+  - colors:
+    - '#ED8C01'
+    - '#007ACC'
+    content:
+    - '<br/><b>Note: </b><span>The <a href="https://huggingface.co/openai/whisper-large-v2">Whipser-Large-v2</a> model is used for ASR decoding.</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">noisy:&#9;</span><span style="text-align: center; font-family: Menlo;">Input noisy speech</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">excl:&#9;</span><span style="text-align: center; font-family: Menlo;">Enhanced speech from the corpus-exclusive SE model (trained for 20 epochs on 8 kHz data)</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">univ:&#9;</span><span style="text-align: center; font-family: Menlo;">Enhanced speech from the universal SE model (trained for 20 epochs on 8 kHz data)</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">univ+:&#9;</span><span style="text-align: center; font-family: Menlo;">Enhanced speech from the universal SE model (further fine-tuned for 5 epochs with variable sampling frequencies (8, 16, and 24 kHz, achieved via downsampling) on the same data.</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">clean:&#9;</span><span style="text-align: center; font-family: Menlo;">Reference clean speech</span><br/><br/>
+      <table id="exp_table" align="left">
+      <thead> <tr> <th></th> <th>noisy</th> <th>excl</th> <th>univ</th> <th>univ+</th> </tr> </thead>
+      <tbody>
+        <tr> <td><b>PESQ-WB</b></td> <td>1.27</td> <td>1.56</td> <td><u>1.72</u></td> <td><b>1.76</b></td> </tr>
+        <tr> <td><b>STOI</b> (×100)</td> <td>76.5</td> <td><u>86.8</u></td> <td>86.0</td> <td><b>86.9</b></td> </tr>
+        <tr> <td><b>SDR</b> (dB)</td> <td>0.65</td> <td>14.1</td> <td><b>14.8</b></td> <td><u>14.6</u></td> </tr>
+        <tr> <td><b>DNSMOS OVRL</b></td> <td>1.70</td> <td><u>3.21</u></td> <td><b>3.21</b></td> <td>3.19</td> </tr>
+      </tbody>
+      </table>'
+    - '<br/><b>Note: </b><span>The <a href="https://huggingface.co/openai/whisper-large-v2">Whipser-Large-v2</a> model is used for ASR decoding.</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">noisy:&#9;</span><span style="text-align: center; font-family: Menlo;">Input noisy speech</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">excl:&#9;</span><span style="text-align: center; font-family: Menlo;">Enhanced speech from the corpus-exclusive SE model (trained for 20 epochs on 8 kHz data)</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">univ:&#9;</span><span style="text-align: center; font-family: Menlo;">Enhanced speech from the universal SE model (trained for 20 epochs on 8 kHz data)</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">univ+:&#9;</span><span style="text-align: center; font-family: Menlo;">Enhanced speech from the universal SE model (further fine-tuned for 5 epochs with variable sampling frequencies (8, 16, and 24 kHz, achieved via downsampling) on the same data.</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">clean:&#9;</span><span style="text-align: center; font-family: Menlo;">Reference clean speech</span><br/><br/>
+      <table id="exp_table" align="left">
+      <thead> <tr> <th></th> <th>noisy</th> <th>excl</th> <th>univ</th> <th>univ+</th> </tr> </thead>
+      <tbody>
+        <tr> <td><b>PESQ-WB</b></td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> </tr>
+        <tr> <td><b>STOI</b> (×100)</td> <td>76.5</td> <td>71.3</td> <td><u>85.8</u></td> <td><b>86.9</b></td> </tr>
+        <tr> <td><b>SDR</b> (dB)</td> <td>-0.0</td> <td>2.6</td> <td><u>10.1</u></td> <td><b>13.3</b></td> </tr>
+        <tr> <td><b>DNSMOS OVRL</b></td> <td>1.53</td> <td>2.70</td> <td><u>3.15</u></td> <td><b>3.21</b></td> </tr>
+      </tbody>
+      </table>'
+    enableLooping: true
+    id: voicebank_demand_p232_242
+    conditions:
+    - 16 kHz
+    - 48 kHz
+    name: (1/10) p232_242 from VoiceBank+DEMAND
+    sampleRate:
+      - 16000
+      - 48000
+    stimuli:
+      - noisy: ./configs/resources/demo_wavs_stereo/noisy/p232_242_16k.wav
+        excl: ./configs/resources/demo_wavs_stereo/corpus_exclusive/p232_242_16k.wav
+        univ: ./configs/resources/demo_wavs_stereo/univ/p232_242_16k.wav
+        univ+: ./configs/resources/demo_wavs_stereo/univ_plus/p232_242_16k.wav
+        clean: ./configs/resources/demo_wavs_stereo/clean/p232_242_16k.wav
+      - noisy: ./configs/resources/demo_wavs_stereo/noisy/p232_242_48k.wav
+        excl: ./configs/resources/demo_wavs_stereo/corpus_exclusive/p232_242_48k.wav
+        univ: ./configs/resources/demo_wavs_stereo/univ/p232_242_48k.wav
+        univ+: ./configs/resources/demo_wavs_stereo/univ_plus/p232_242_48k.wav
+        clean: ./configs/resources/demo_wavs_stereo/clean/p232_242_48k.wav
+    spectrogram:
+      - noisy: ./configs/resources/demo_wavs_stereo/noisy/p232_242_16k.png
+        excl: ./configs/resources/demo_wavs_stereo/corpus_exclusive/p232_242_16k.png
+        univ: ./configs/resources/demo_wavs_stereo/univ/p232_242_16k.png
+        univ+: ./configs/resources/demo_wavs_stereo/univ_plus/p232_242_16k.png
+        clean: ./configs/resources/demo_wavs_stereo/clean/p232_242_16k.png
+      - noisy: ./configs/resources/demo_wavs_stereo/noisy/p232_242_48k.png
+        excl: ./configs/resources/demo_wavs_stereo/corpus_exclusive/p232_242_48k.png
+        univ: ./configs/resources/demo_wavs_stereo/univ/p232_242_48k.png
+        univ+: ./configs/resources/demo_wavs_stereo/univ_plus/p232_242_48k.png
+        clean: ./configs/resources/demo_wavs_stereo/clean/p232_242_48k.png
+    asr:
+      - noisy: it is quite a <font color="red">lineup</font>
+        excl: it is quite a <font color="red">lineup</font>
+        univ: <font color="red">that</font> is quite a line up
+        univ+: it is quite a <font color="red">lineup</font>
+        clean: it is quite a line up
+      - noisy: it is quite a <font color="red">lineup</font>
+        excl: <font color="red">that</font> is quite a <font color="red">lineup</font>
+        univ: <font color="red">that</font> is quite a <font color="red">lineup</font>
+        univ+: it is quite a <font color="red">lineup</font>
+        clean: it is quite a line up
+    type: multi_condition_demo
+
+  - colors:
+    - '#ED8C01'
+    - '#007ACC'
+    content:
+    - '<br/><b>Note: </b><span>The <a href="https://huggingface.co/openai/whisper-large-v2">Whipser-Large-v2</a> model is used for ASR decoding.</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">noisy:&#9;</span><span style="text-align: center; font-family: Menlo;">Input noisy speech</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">excl:&#9;</span><span style="text-align: center; font-family: Menlo;">Enhanced speech from the corpus-exclusive SE model (trained for 20 epochs on 8 kHz data)</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">univ:&#9;</span><span style="text-align: center; font-family: Menlo;">Enhanced speech from the universal SE model (trained for 20 epochs on 8 kHz data)</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">univ+:&#9;</span><span style="text-align: center; font-family: Menlo;">Enhanced speech from the universal SE model (further fine-tuned for 5 epochs with variable sampling frequencies (8, 16, and 24 kHz, achieved via downsampling) on the same data.</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">clean:&#9;</span><span style="text-align: center; font-family: Menlo;">Reference clean speech</span><br/><br/>
+      <table id="exp_table" align="left">
+      <thead> <tr> <th></th> <th>noisy</th> <th>excl</th> <th>univ</th> <th>univ+</th> </tr> </thead>
+      <tbody>
+        <tr> <td><b>PESQ-WB</b></td> <td>1.37</td> <td><u>3.34</u></td> <td>3.21</td> <td><b>3.37</b></td> </tr>
+        <tr> <td><b>STOI</b> (×100)</td> <td>94.0</td> <td><b>97.2</b></td> <td>96.6</td> <td><u>97.2</u></td> </tr>
+        <tr> <td><b>SDR</b> (dB)</td> <td>1.9</td> <td>21.5</td> <td><u>21.6</u></td> <td><b>21.7</b></td> </tr>
+        <tr> <td><b>DNSMOS OVRL</b></td> <td>2.80</td> <td>3.42</td> <td><u>3.44</u></td> <td><b>3.51</b></td> </tr>
+      </tbody>
+      </table>'
+    - '<br/><b>Note: </b><span>The <a href="https://huggingface.co/openai/whisper-large-v2">Whipser-Large-v2</a> model is used for ASR decoding.</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">noisy:&#9;</span><span style="text-align: center; font-family: Menlo;">Input noisy speech</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">excl:&#9;</span><span style="text-align: center; font-family: Menlo;">Enhanced speech from the corpus-exclusive SE model (trained for 20 epochs on 8 kHz data)</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">univ:&#9;</span><span style="text-align: center; font-family: Menlo;">Enhanced speech from the universal SE model (trained for 20 epochs on 8 kHz data)</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">univ+:&#9;</span><span style="text-align: center; font-family: Menlo;">Enhanced speech from the universal SE model (further fine-tuned for 5 epochs with variable sampling frequencies (8, 16, and 24 kHz, achieved via downsampling) on the same data.</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">clean:&#9;</span><span style="text-align: center; font-family: Menlo;">Reference clean speech</span><br/><br/>
+      <table id="exp_table" align="left">
+      <thead> <tr> <th></th> <th>noisy</th> <th>excl</th> <th>univ</th> <th>univ+</th> </tr> </thead>
+      <tbody>
+        <tr> <td><b>PESQ-WB</b></td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> </tr>
+        <tr> <td><b>STOI</b> (×100)</td> <td>94.0</td> <td>95.2</td> <td><u>95.8</u></td> <td><b>96.9</b></td> </tr>
+        <tr> <td><b>SDR</b> (dB)</td> <td>1.9</td> <td><u>13.0</u></td> <td>12.2</td> <td><b>17.1</b></td> </tr>
+        <tr> <td><b>DNSMOS OVRL</b></td> <td>2.80</td> <td>3.38</td> <td><u>3.39</u></td> <td><b>3.51</b></td> </tr>
+      </tbody>
+      </table>'
+    enableLooping: true
+    id: voicebank_demand_p257_022
+    conditions:
+    - 16 kHz
+    - 48 kHz
+    name: (2/10) p257_022 from VoiceBank+DEMAND
+    sampleRate:
+      - 16000
+      - 48000
+    stimuli:
+      - noisy: ./configs/resources/demo_wavs_stereo/noisy/p257_022_16k.wav
+        excl: ./configs/resources/demo_wavs_stereo/corpus_exclusive/p257_022_16k.wav
+        univ: ./configs/resources/demo_wavs_stereo/univ/p257_022_16k.wav
+        univ+: ./configs/resources/demo_wavs_stereo/univ_plus/p257_022_16k.wav
+        clean: ./configs/resources/demo_wavs_stereo/clean/p257_022_16k.wav
+      - noisy: ./configs/resources/demo_wavs_stereo/noisy/p257_022_48k.wav
+        excl: ./configs/resources/demo_wavs_stereo/corpus_exclusive/p257_022_48k.wav
+        univ: ./configs/resources/demo_wavs_stereo/univ/p257_022_48k.wav
+        univ+: ./configs/resources/demo_wavs_stereo/univ_plus/p257_022_48k.wav
+        clean: ./configs/resources/demo_wavs_stereo/clean/p257_022_48k.wav
+    spectrogram:
+      - noisy: ./configs/resources/demo_wavs_stereo/noisy/p257_022_16k.png
+        excl: ./configs/resources/demo_wavs_stereo/corpus_exclusive/p257_022_16k.png
+        univ: ./configs/resources/demo_wavs_stereo/univ/p257_022_16k.png
+        univ+: ./configs/resources/demo_wavs_stereo/univ_plus/p257_022_16k.png
+        clean: ./configs/resources/demo_wavs_stereo/clean/p257_022_16k.png
+      - noisy: ./configs/resources/demo_wavs_stereo/noisy/p257_022_48k.png
+        excl: ./configs/resources/demo_wavs_stereo/corpus_exclusive/p257_022_48k.png
+        univ: ./configs/resources/demo_wavs_stereo/univ/p257_022_48k.png
+        univ+: ./configs/resources/demo_wavs_stereo/univ_plus/p257_022_48k.png
+        clean: ./configs/resources/demo_wavs_stereo/clean/p257_022_48k.png
+    asr:
+      - noisy: the actual primary rainbow observed is said to be the effect of <font color="red">superimposition</font> of a number of bows
+        excl: the actual primary rainbow observed is said to be the effect of <font color="red">superimposition</font> of a number of bows
+        univ: the actual primary rainbow observed is said to be the effect of <font color="red">superimposition</font> of a number of bows
+        univ+: the actual primary rainbow observed is said to be the effect of <font color="red">superimposition</font> of a number of bows
+        clean: the actual primary rainbow observed is said to be the effect of super imposition of a number of bows
+      - noisy: the actual primary rainbow observed is said to be the effect of superimposition of a number of bows
+        excl: the actual primary rainbow observed is said to be the effect of <font color="red">superimposition</font> of a number of bows
+        univ: the actual primary rainbow observed is said to be the effect of <font color="red">superimposition</font> of a number of bows
+        univ+: the actual primary rainbow observed is said to be the effect of <font color="red">superimposition</font> of a number of bows
+        clean: the actual primary rainbow observed is said to be the effect of super imposition of a number of bows
+    type: multi_condition_demo
+
+  - colors:
+    - '#ED8C01'
+    - '#007ACC'
+    content:
+    - '<br/><b>Note: </b><span>The <a href="https://huggingface.co/openai/whisper-large-v2">Whipser-Large-v2</a> model is used for ASR decoding.</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">noisy:&#9;</span><span style="text-align: center; font-family: Menlo;">Input noisy speech</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">excl:&#9;</span><span style="text-align: center; font-family: Menlo;">Enhanced speech from the corpus-exclusive SE model (trained for 20 epochs on 8 kHz data)</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">univ:&#9;</span><span style="text-align: center; font-family: Menlo;">Enhanced speech from the universal SE model (trained for 20 epochs on 8 kHz data)</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">univ+:&#9;</span><span style="text-align: center; font-family: Menlo;">Enhanced speech from the universal SE model (further fine-tuned for 5 epochs with variable sampling frequencies (8, 16, and 24 kHz, achieved via downsampling) on the same data.</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">clean:&#9;</span><span style="text-align: center; font-family: Menlo;">Reference clean speech</span><br/><br/>
+      <table id="exp_table" align="left">
+      <thead> <tr> <th></th> <th>noisy</th> <th>excl</th> <th>univ</th> <th>univ+</th> </tr> </thead>
+      <tbody>
+        <tr> <td><b>PESQ-WB</b></td> <td>1.07</td> <td>2.16</td> <td><u>2.28</u></td> <td><b>2.31</b></td> </tr>
+        <tr> <td><b>STOI</b> (×100)</td> <td>76.4</td> <td>91.7</td> <td><u>92.9</u></td> <td><b>93.5</b></td> </tr>
+        <tr> <td><b>SDR</b> (dB)</td> <td>1.6</td> <td>17.2</td> <td><u>18.6</u></td> <td><b>18.7</b></td> </tr>
+        <tr> <td><b>DNSMOS OVRL</b></td> <td>2.50</td> <td>3.21</td> <td><b>3.39</b></td> <td><u>3.35</u></td> </tr>
+      </tbody>
+      </table>'
+    - '<br/><b>Note: </b><span>The <a href="https://huggingface.co/openai/whisper-large-v2">Whipser-Large-v2</a> model is used for ASR decoding.</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">noisy:&#9;</span><span style="text-align: center; font-family: Menlo;">Input noisy speech</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">excl:&#9;</span><span style="text-align: center; font-family: Menlo;">Enhanced speech from the corpus-exclusive SE model (trained for 20 epochs on 8 kHz data)</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">univ:&#9;</span><span style="text-align: center; font-family: Menlo;">Enhanced speech from the universal SE model (trained for 20 epochs on 8 kHz data)</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">univ+:&#9;</span><span style="text-align: center; font-family: Menlo;">Enhanced speech from the universal SE model (further fine-tuned for 5 epochs with variable sampling frequencies (8, 16, and 24 kHz, achieved via downsampling) on the same data.</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">clean:&#9;</span><span style="text-align: center; font-family: Menlo;">Reference clean speech</span><br/><br/>
+      <table id="exp_table" align="left">
+      <thead> <tr> <th></th> <th>noisy</th> <th>excl</th> <th>univ</th> <th>univ+</th> </tr> </thead>
+      <tbody>
+        <tr> <td><b>PESQ-WB</b></td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> </tr>
+        <tr> <td><b>STOI</b> (×100)</td> <td>76.4</td> <td>84.6</td> <td><u>91.6</u></td> <td><b>93.0</b></td> </tr>
+        <tr> <td><b>SDR</b> (dB)</td> <td>1.5</td> <td>8.0</td> <td><u>11.8</u></td> <td><b>17.2</b></td> </tr>
+        <tr> <td><b>DNSMOS OVRL</b></td> <td>1.93</td> <td><b>3.33</b></td> <td><u>3.19</u></td> <td>3.19</td> </tr>
+      </tbody>
+      </table>'
+    enableLooping: true
+    id: voicebank_demand_p257_231
+    conditions:
+    - 16 kHz
+    - 48 kHz
+    name: (3/10) p257_231 from VoiceBank+DEMAND
+    sampleRate:
+      - 16000
+      - 48000
+    stimuli:
+      - noisy: ./configs/resources/demo_wavs_stereo/noisy/p257_231_16k.wav
+        excl: ./configs/resources/demo_wavs_stereo/corpus_exclusive/p257_231_16k.wav
+        univ: ./configs/resources/demo_wavs_stereo/univ/p257_231_16k.wav
+        univ+: ./configs/resources/demo_wavs_stereo/univ_plus/p257_231_16k.wav
+        clean: ./configs/resources/demo_wavs_stereo/clean/p257_231_16k.wav
+      - noisy: ./configs/resources/demo_wavs_stereo/noisy/p257_231_48k.wav
+        excl: ./configs/resources/demo_wavs_stereo/corpus_exclusive/p257_231_48k.wav
+        univ: ./configs/resources/demo_wavs_stereo/univ/p257_231_48k.wav
+        univ+: ./configs/resources/demo_wavs_stereo/univ_plus/p257_231_48k.wav
+        clean: ./configs/resources/demo_wavs_stereo/clean/p257_231_48k.wav
+    spectrogram:
+      - noisy: ./configs/resources/demo_wavs_stereo/noisy/p257_231_16k.png
+        excl: ./configs/resources/demo_wavs_stereo/corpus_exclusive/p257_231_16k.png
+        univ: ./configs/resources/demo_wavs_stereo/univ/p257_231_16k.png
+        univ+: ./configs/resources/demo_wavs_stereo/univ_plus/p257_231_16k.png
+        clean: ./configs/resources/demo_wavs_stereo/clean/p257_231_16k.png
+      - noisy: ./configs/resources/demo_wavs_stereo/noisy/p257_231_48k.png
+        excl: ./configs/resources/demo_wavs_stereo/corpus_exclusive/p257_231_48k.png
+        univ: ./configs/resources/demo_wavs_stereo/univ/p257_231_48k.png
+        univ+: ./configs/resources/demo_wavs_stereo/univ_plus/p257_231_48k.png
+        clean: ./configs/resources/demo_wavs_stereo/clean/p257_231_48k.png
+    asr:
+      - noisy: on the ground the west bank was again the focus of violence
+        excl: on the ground the west bank was again the <font color="red">place</font> of <font color="red">the fire loop</font>
+        univ: on the ground the west bank was again the <font color="red">place</font> of violence
+        univ+: on the ground the west bank was again the <font color="red">place</font> of violence
+        clean: on the ground the west bank was again the focus of violence
+      - noisy: on the ground the west bank was again the focus of violence
+        excl: on the ground &nbsp;&nbsp; west bank was again <font color="red">a place</font> of violence
+        univ: on the ground the west bank was again the focus of <font color="red">fire</font>
+        univ+: on the ground the west bank was again the focus of violence
+        clean: on the ground the west bank was again the focus of violence
+    type: multi_condition_demo
+
+  - colors:
+    - '#ED8C01'
+    - '#007ACC'
+    content:
+    - '<br/><b>Note: </b><span>The <a href="https://huggingface.co/openai/whisper-large-v2">Whipser-Large-v2</a> model is used for ASR decoding.</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">noisy:&#9;</span><span style="text-align: center; font-family: Menlo;">Input noisy speech</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">excl:&#9;</span><span style="text-align: center; font-family: Menlo;">Enhanced speech from the corpus-exclusive SE model (trained for 20 epochs on 8 kHz data)</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">univ:&#9;</span><span style="text-align: center; font-family: Menlo;">Enhanced speech from the universal SE model (trained for 20 epochs on 8 kHz data)</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">univ+:&#9;</span><span style="text-align: center; font-family: Menlo;">Enhanced speech from the universal SE model (further fine-tuned for 5 epochs with variable sampling frequencies (8, 16, and 24 kHz, achieved via downsampling) on the same data.</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">clean:&#9;</span><span style="text-align: center; font-family: Menlo;">Reference clean speech</span><br/><br/>
+      <table id="exp_table" align="left">
+      <thead> <tr> <th></th> <th>noisy</th> <th>excl</th> <th>univ</th> <th>univ+</th> </tr> </thead>
+      <tbody>
+        <tr> <td><b>PESQ-WB</b></td> <td>1.16</td> <td><u>2.62</u></td> <td>2.56</td> <td><b>2.69</b></td> </tr>
+        <tr> <td><b>STOI</b> (×100)</td> <td>81.9</td> <td><u>93.5</u></td> <td>93.2</td> <td><b>93.9</b></td> </tr>
+        <tr> <td><b>SDR</b> (dB)</td> <td>1.66</td> <td>14.7</td> <td><b>15.9</b></td> <td><u>15.9</u></td> </tr>
+        <tr> <td><b>DNSMOS OVRL</b></td> <td>1.44</td> <td>3.32</td> <td><b>3.42</b></td> <td><u>3.39</u></td> </tr>
+      </tbody>
+      </table>'
+    - '<br/><b>Note: </b><span>The <a href="https://huggingface.co/openai/whisper-large-v2">Whipser-Large-v2</a> model is used for ASR decoding.</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">noisy:&#9;</span><span style="text-align: center; font-family: Menlo;">Input noisy speech</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">excl:&#9;</span><span style="text-align: center; font-family: Menlo;">Enhanced speech from the corpus-exclusive SE model (trained for 20 epochs on 8 kHz data)</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">univ:&#9;</span><span style="text-align: center; font-family: Menlo;">Enhanced speech from the universal SE model (trained for 20 epochs on 8 kHz data)</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">univ+:&#9;</span><span style="text-align: center; font-family: Menlo;">Enhanced speech from the universal SE model (further fine-tuned for 5 epochs with variable sampling frequencies (8, 16, and 24 kHz, achieved via downsampling) on the same data.</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">clean:&#9;</span><span style="text-align: center; font-family: Menlo;">Reference clean speech</span><br/><br/>
+      <table id="exp_table" align="left">
+      <thead> <tr> <th></th> <th>noisy</th> <th>excl</th> <th>univ</th> <th>univ+</th> </tr> </thead>
+      <tbody>
+        <tr> <td><b>PESQ-WB</b></td> <td>-</td> <td>-</td> <td>-</td> <td>-</td> </tr>
+        <tr> <td><b>STOI</b> (×100)</td> <td>81.9</td> <td>84.3</td> <td><u>93.1</u></td> <td><b>93.9</b></td> </tr>
+        <tr> <td><b>SDR</b> (dB)</td> <td>1.5</td> <td>7.3</td> <td><u>12.7</u></td> <td><b>15.4</b></td> </tr>
+        <tr> <td><b>DNSMOS OVRL</b></td> <td>1.27</td> <td>3.12</td> <td><b>3.40</b></td> <td><u>3.37</u></td> </tr>
+      </tbody>
+      </table>'
+    enableLooping: true
+    id: voicebank_demand_p232_036
+    conditions:
+    - 16 kHz
+    - 48 kHz
+    name: (4/10) p232_036 from VoiceBank+DEMAND
+    sampleRate:
+      - 16000
+      - 48000
+    stimuli:
+      - noisy: ./configs/resources/demo_wavs_stereo/noisy/p232_036_16k.wav
+        excl: ./configs/resources/demo_wavs_stereo/corpus_exclusive/p232_036_16k.wav
+        univ: ./configs/resources/demo_wavs_stereo/univ/p232_036_16k.wav
+        univ+: ./configs/resources/demo_wavs_stereo/univ_plus/p232_036_16k.wav
+        clean: ./configs/resources/demo_wavs_stereo/clean/p232_036_16k.wav
+      - noisy: ./configs/resources/demo_wavs_stereo/noisy/p232_036_48k.wav
+        excl: ./configs/resources/demo_wavs_stereo/corpus_exclusive/p232_036_48k.wav
+        univ: ./configs/resources/demo_wavs_stereo/univ/p232_036_48k.wav
+        univ+: ./configs/resources/demo_wavs_stereo/univ_plus/p232_036_48k.wav
+        clean: ./configs/resources/demo_wavs_stereo/clean/p232_036_48k.wav
+    spectrogram:
+      - noisy: ./configs/resources/demo_wavs_stereo/noisy/p232_036_16k.png
+        excl: ./configs/resources/demo_wavs_stereo/corpus_exclusive/p232_036_16k.png
+        univ: ./configs/resources/demo_wavs_stereo/univ/p232_036_16k.png
+        univ+: ./configs/resources/demo_wavs_stereo/univ_plus/p232_036_16k.png
+        clean: ./configs/resources/demo_wavs_stereo/clean/p232_036_16k.png
+      - noisy: ./configs/resources/demo_wavs_stereo/noisy/p232_036_48k.png
+        excl: ./configs/resources/demo_wavs_stereo/corpus_exclusive/p232_036_48k.png
+        univ: ./configs/resources/demo_wavs_stereo/univ/p232_036_48k.png
+        univ+: ./configs/resources/demo_wavs_stereo/univ_plus/p232_036_48k.png
+        clean: ./configs/resources/demo_wavs_stereo/clean/p232_036_48k.png
+    asr:
+      - noisy: but it may take some time to confirm the findings
+        excl: <font color="red">that</font> it may take some time to confirm the findings
+        univ: but it may take some time to confirm the findings
+        univ+: but it may take some time to confirm the findings
+        clean: but it may take some time to confirm the findings
+      - noisy: but it may take some time to confirm the findings
+        excl: &nbsp;&nbsp; it may take some time to confirm the findings
+        univ: but it may take some time to confirm the findings
+        univ+: but it may take some time to confirm the findings
+        clean: but it may take some time to confirm the findings
+    type: multi_condition_demo
+
+  - colors:
+    - '#ED8C01'
+    - '#007ACC'
+    content:
+    - '<br/><b>Note: </b><span>The <a href="https://huggingface.co/openai/whisper-large-v2">Whipser-Large-v2</a> model is used for ASR decoding.</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">noisy:&#9;</span><span style="text-align: center; font-family: Menlo;">Input noisy speech</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">excl:&#9;</span><span style="text-align: center; font-family: Menlo;">Enhanced speech from the corpus-exclusive SE model (trained for 20 epochs on 8 kHz data)</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">univ:&#9;</span><span style="text-align: center; font-family: Menlo;">Enhanced speech from the universal SE model (trained for 20 epochs on 8 kHz data)</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">univ+:&#9;</span><span style="text-align: center; font-family: Menlo;">Enhanced speech from the universal SE model (further fine-tuned for 5 epochs with variable sampling frequencies (8, 16, and 24 kHz, achieved via downsampling) on the same data.</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">clean:&#9;</span><span style="text-align: center; font-family: Menlo;">Reference clean speech</span><br/><br/>
+      <table id="exp_table" align="left">
+      <thead> <tr> <th></th> <th>noisy</th> <th>excl</th> <th>univ</th> <th>univ+</th> </tr> </thead>
+      <tbody>
+        <tr> <td><b>PESQ-WB</b></td> <td>1.06</td> <td>1.44</td> <td><u>1.49</u></td> <td><b>1.59</b></td> </tr>
+        <tr> <td><b>STOI</b> (×100)</td> <td>69.8</td> <td>83.5</td> <td><b>85.2</b></td> <td><u>85.1</u></td> </tr>
+        <tr> <td><b>SDR</b> (dB)</td> <td>0.1</td> <td>9.0</td> <td><u>9.7</u></td> <td><b>9.8</b></td> </tr>
+        <tr> <td><b>DNSMOS OVRL</b></td> <td>1.09</td> <td>3.19</td> <td><b>3.40</b></td> <td><u>3.37</u></td> </tr>
+      </tbody>
+      </table>'
+    - '<br/><b>Note: </b><span>The <a href="https://huggingface.co/openai/whisper-large-v2">Whipser-Large-v2</a> model is used for ASR decoding.</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">noisy:&#9;</span><span style="text-align: center; font-family: Menlo;">Input noisy speech</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">excl:&#9;</span><span style="text-align: center; font-family: Menlo;">Enhanced speech from the corpus-exclusive SE model (trained for 20 epochs on 8 kHz data)</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">univ:&#9;</span><span style="text-align: center; font-family: Menlo;">Enhanced speech from the universal SE model (trained for 20 epochs on 8 kHz data)</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">univ+:&#9;</span><span style="text-align: center; font-family: Menlo;">Enhanced speech from the universal SE model (further fine-tuned for 5 epochs with variable sampling frequencies (8, 16, and 24 kHz, achieved via downsampling) on the same data.</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">clean:&#9;</span><span style="text-align: center; font-family: Menlo;">Reference clean speech</span><br/><br/>
+      <table id="exp_table" align="left">
+      <thead> <tr> <th></th> <th>noisy</th> <th>excl</th> <th>univ</th> <th>univ+</th> </tr> </thead>
+      <tbody>
+        <tr> <td><b>PESQ-WB</b></td> <td>1.12</td> <td>1.33</td> <td><u>1.41</u></td> <td><b>1.52</b></td> </tr>
+        <tr> <td><b>STOI</b> (×100)</td> <td>63.8</td> <td>69.4</td> <td><u>79.7</u></td> <td><b>81.3</b></td> </tr>
+        <tr> <td><b>SDR</b> (dB)</td> <td>0.0</td> <td>6.6</td> <td><u>8.0</u></td> <td><b>8.3</b></td> </tr>
+        <tr> <td><b>DNSMOS OVRL</b></td> <td>1.07</td> <td>2.79</td> <td><b>3.24</b></td> <td><u>3.23</u></td> </tr>
+      </tbody>
+      </table>'
+    enableLooping: true
+    id: dns1_fileid_268
+    conditions:
+    - 16 kHz (w/o reverb)
+    - 16 kHz (w/ reverb)
+    name: (5/10) fileid_268 from DNS1
+    sampleRate:
+      - 16000
+      - 16000
+    stimuli:
+      - noisy: ./configs/resources/demo_wavs_stereo/noisy/fileid_268_no_reverb_16k.wav
+        excl: ./configs/resources/demo_wavs_stereo/corpus_exclusive/fileid_268_no_reverb_16k.wav
+        univ: ./configs/resources/demo_wavs_stereo/univ/fileid_268_no_reverb_16k.wav
+        univ+: ./configs/resources/demo_wavs_stereo/univ_plus/fileid_268_no_reverb_16k.wav
+        clean: ./configs/resources/demo_wavs_stereo/clean/fileid_268_no_reverb_16k.wav
+      - noisy: ./configs/resources/demo_wavs_stereo/noisy/fileid_268_with_reverb_16k.wav
+        excl: ./configs/resources/demo_wavs_stereo/corpus_exclusive/fileid_268_with_reverb_16k.wav
+        univ: ./configs/resources/demo_wavs_stereo/univ/fileid_268_with_reverb_16k.wav
+        univ+: ./configs/resources/demo_wavs_stereo/univ_plus/fileid_268_with_reverb_16k.wav
+        clean: ./configs/resources/demo_wavs_stereo/clean/fileid_268_with_reverb_16k.wav
+    spectrogram:
+      - noisy: ./configs/resources/demo_wavs_stereo/noisy/fileid_268_no_reverb_16k.png
+        excl: ./configs/resources/demo_wavs_stereo/corpus_exclusive/fileid_268_no_reverb_16k.png
+        univ: ./configs/resources/demo_wavs_stereo/univ/fileid_268_no_reverb_16k.png
+        univ+: ./configs/resources/demo_wavs_stereo/univ_plus/fileid_268_no_reverb_16k.png
+        clean: ./configs/resources/demo_wavs_stereo/clean/fileid_268_no_reverb_16k.png
+      - noisy: ./configs/resources/demo_wavs_stereo/noisy/fileid_268_with_reverb_16k.png
+        excl: ./configs/resources/demo_wavs_stereo/corpus_exclusive/fileid_268_with_reverb_16k.png
+        univ: ./configs/resources/demo_wavs_stereo/univ/fileid_268_with_reverb_16k.png
+        univ+: ./configs/resources/demo_wavs_stereo/univ_plus/fileid_268_with_reverb_16k.png
+        clean: ./configs/resources/demo_wavs_stereo/clean/fileid_268_with_reverb_16k.png
+    asr:
+      - noisy: she had your dark suit and greasy <font color="red">washcloth on you</font> do not ask me to carry an oily rag like that do they make <font color="red">glass fine</font>
+        excl: she had your dark suit and greasy wash <font color="red">rubber on you</font> do not ask me to carry an oily rag <font color="red">booting belt</font> do they make <font color="red">glass vials</font>
+        univ: she had <font color="red">a</font> dark suit and greasy wash water all year do not ask me to carry an oily rag like that do they make <font color="red">glass pipes</font>
+        univ+: she had <font color="red">a</font> dark suit and greasy wash water <font color="red">wise youth</font> do not ask me to carry an oily rag like that do they make <font color="red">flask</font> by <font color="red">hand</font>
+        clean: she had your dark suit and greasy wash water all year do not ask me to carry an oily rag like that do they make class by
+      - noisy: she had your dark suit and greasy <font color="red">washboard</font>&nbsp;&nbsp; do not ask me to carry an oily rag like that do they make class by <font color="red">any chance</font>
+        excl: she had <font color="red">ripped out her</font> suit <font color="red">into a breezy washcloth and told him</font> do not <font color="red">pass through this area in a coyly</font> rag like that <font color="red">you would be made fun of for it</font>
+        univ: she <font color="red">held</font> your dark suit and greasy <font color="red">washcloth</font> all <font color="red">youth</font> do not ask me to <font color="red">ferry</font> an oily rag like that do they make class <font color="red">for it</font>
+        univ+: she had your dark suit and greasy <font color="red">washcloth</font>&nbsp;&nbsp;&nbsp;&nbsp; do not ask me to carry an oily rag like that do they make class by
+        clean: she had your dark suit and greasy wash water all year do not ask me to carry an oily rag like that do they make class by
+    type: multi_condition_demo
+
+  - colors:
+    - '#ED8C01'
+    - '#007ACC'
+    content:
+    - '<br/><b>Note: </b><span>The <a href="https://huggingface.co/openai/whisper-large-v2">Whipser-Large-v2</a> model is used for ASR decoding.</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">noisy:&#9;</span><span style="text-align: center; font-family: Menlo;">Input noisy speech</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">excl:&#9;</span><span style="text-align: center; font-family: Menlo;">Enhanced speech from the corpus-exclusive SE model (trained for 20 epochs on 8 kHz data)</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">univ:&#9;</span><span style="text-align: center; font-family: Menlo;">Enhanced speech from the universal SE model (trained for 20 epochs on 8 kHz data)</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">univ+:&#9;</span><span style="text-align: center; font-family: Menlo;">Enhanced speech from the universal SE model (further fine-tuned for 5 epochs with variable sampling frequencies (8, 16, and 24 kHz, achieved via downsampling) on the same data.</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">clean:&#9;</span><span style="text-align: center; font-family: Menlo;">Reference clean speech</span><br/><br/>
+      <table id="exp_table" align="left">
+      <thead> <tr> <th></th> <th>noisy</th> <th>excl</th> <th>univ</th> <th>univ+</th> </tr> </thead>
+      <tbody>
+        <tr> <td><b>PESQ-WB</b></td> <td>1.06</td> <td>1.66</td> <td><u>1.87</u></td> <td><b>2.06</b></td> </tr>
+        <tr> <td><b>STOI</b> (×100)</td> <td>71.5</td> <td>87.4</td> <td><u>90.4</u></td> <td><b>92.1</b></td> </tr>
+        <tr> <td><b>SDR</b> (dB)</td> <td>1.0</td> <td>12.6</td> <td><u>13.1</u></td> <td><b>13.2</b></td> </tr>
+        <tr> <td><b>DNSMOS OVRL</b></td> <td>1.15</td> <td>3.16</td> <td><u>3.17</u></td> <td><b>3.37</b></td> </tr>
+      </tbody>
+      </table>'
+    - '<br/><b>Note: </b><span>The <a href="https://huggingface.co/openai/whisper-large-v2">Whipser-Large-v2</a> model is used for ASR decoding.</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">noisy:&#9;</span><span style="text-align: center; font-family: Menlo;">Input noisy speech</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">excl:&#9;</span><span style="text-align: center; font-family: Menlo;">Enhanced speech from the corpus-exclusive SE model (trained for 20 epochs on 8 kHz data)</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">univ:&#9;</span><span style="text-align: center; font-family: Menlo;">Enhanced speech from the universal SE model (trained for 20 epochs on 8 kHz data)</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">univ+:&#9;</span><span style="text-align: center; font-family: Menlo;">Enhanced speech from the universal SE model (further fine-tuned for 5 epochs with variable sampling frequencies (8, 16, and 24 kHz, achieved via downsampling) on the same data.</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">clean:&#9;</span><span style="text-align: center; font-family: Menlo;">Reference clean speech</span><br/><br/>
+      <table id="exp_table" align="left">
+      <thead> <tr> <th></th> <th>noisy</th> <th>excl</th> <th>univ</th> <th>univ+</th> </tr> </thead>
+      <tbody>
+        <tr> <td><b>PESQ-WB</b></td> <td>1.14</td> <td>1.28</td> <td><u>1.88</u></td> <td><b>2.06</b></td> </tr>
+        <tr> <td><b>STOI</b> (×100)</td> <td>63.2</td> <td>74.4</td> <td><u>84.5</u></td> <td><b>86.7</b></td> </tr>
+        <tr> <td><b>SDR</b> (dB)</td> <td>1.0</td> <td>8.5</td> <td><u>10.4</u></td> <td><b>10.5</b></td> </tr>
+        <tr> <td><b>DNSMOS OVRL</b></td> <td>1.10</td> <td><b>3.05</b></td> <td><u>2.98</u></td> <td>2.89</td> </tr>
+      </tbody>
+      </table>'
+    enableLooping: true
+    id: dns1_fileid_192
+    conditions:
+    - 16 kHz (w/o reverb)
+    - 16 kHz (w/ reverb)
+    name: (6/10) fileid_192 from DNS1
+    sampleRate:
+      - 16000
+      - 16000
+    stimuli:
+      - noisy: ./configs/resources/demo_wavs_stereo/noisy/fileid_192_no_reverb_16k.wav
+        excl: ./configs/resources/demo_wavs_stereo/corpus_exclusive/fileid_192_no_reverb_16k.wav
+        univ: ./configs/resources/demo_wavs_stereo/univ/fileid_192_no_reverb_16k.wav
+        univ+: ./configs/resources/demo_wavs_stereo/univ_plus/fileid_192_no_reverb_16k.wav
+        clean: ./configs/resources/demo_wavs_stereo/clean/fileid_192_no_reverb_16k.wav
+      - noisy: ./configs/resources/demo_wavs_stereo/noisy/fileid_192_with_reverb_16k.wav
+        excl: ./configs/resources/demo_wavs_stereo/corpus_exclusive/fileid_192_with_reverb_16k.wav
+        univ: ./configs/resources/demo_wavs_stereo/univ/fileid_192_with_reverb_16k.wav
+        univ+: ./configs/resources/demo_wavs_stereo/univ_plus/fileid_192_with_reverb_16k.wav
+        clean: ./configs/resources/demo_wavs_stereo/clean/fileid_192_with_reverb_16k.wav
+    spectrogram:
+      - noisy: ./configs/resources/demo_wavs_stereo/noisy/fileid_192_no_reverb_16k.png
+        excl: ./configs/resources/demo_wavs_stereo/corpus_exclusive/fileid_192_no_reverb_16k.png
+        univ: ./configs/resources/demo_wavs_stereo/univ/fileid_192_no_reverb_16k.png
+        univ+: ./configs/resources/demo_wavs_stereo/univ_plus/fileid_192_no_reverb_16k.png
+        clean: ./configs/resources/demo_wavs_stereo/clean/fileid_192_no_reverb_16k.png
+      - noisy: ./configs/resources/demo_wavs_stereo/noisy/fileid_192_with_reverb_16k.png
+        excl: ./configs/resources/demo_wavs_stereo/corpus_exclusive/fileid_192_with_reverb_16k.png
+        univ: ./configs/resources/demo_wavs_stereo/univ/fileid_192_with_reverb_16k.png
+        univ+: ./configs/resources/demo_wavs_stereo/univ_plus/fileid_192_with_reverb_16k.png
+        clean: ./configs/resources/demo_wavs_stereo/clean/fileid_192_with_reverb_16k.png
+    asr:
+      - noisy: the paperboy bought 2 apples and 3 ices i itemize all accounts in my agency clear pronunciation is appreciated the courier was a dwarf
+        excl: the paperboy bought 2 apples and 3 ices i itemize all accounts in my agency <font color="red">your</font> pronunciation is appreciated the courier was a dwarf
+        univ: the paperboy bought 2 apples and 3 <font color="red">oz</font> i itemize all accounts in my agency clear pronunciation is appreciated the courier was a dwarf
+        univ+: the paperboy bought 2 apples and 3 <font color="red">oz</font> i itemize all accounts in my agency clear pronunciation is appreciated the courier was a dwarf
+        clean: the paperboy bought 2 apples and 3 ices i itemize all accounts in my agency clear pronunciation is appreciated the courier was a dwarf
+      - noisy: the <font color="red">paperboard left</font> 2 apples and 3 <font color="red">ice</font> i <font color="red">itemized</font> all accounts in my <font color="red">agent</font> clear pronunciation is appreciated the courier was a dwarf
+        excl: the <font color="red">flavor of our books were awful</font> and <font color="red">the ice</font> i <font color="red">would itemized</font> all <font color="red">across your writing your</font> pronunciation <font color="red">was</font> appreciated the courier was a dwarf
+        univ: the paperboy <font color="red">brought</font> 2 apples and 3 ices i <font color="red">itemized</font> all accounts in my <font color="red">agents career</font> pronunciation is appreciated the courier was a dwarf
+        univ+: the paperboy bought 2 apples and 3 <font color="red">ice</font> i <font color="red">itemized</font> all accounts in my agency clear pronunciation is appreciated the courier was &nbsp;<font color="red">dwarfed</font>
+        clean: the paperboy bought 2 apples and 3 ices i itemize all accounts in my agency clear pronunciation is appreciated the courier was a dwarf
+    type: multi_condition_demo
+
+  - colors:
+    - '#ED8C01'
+    - '#007ACC'
+    content:
+    - '<br/><b>Note: </b><span>The <a href="https://huggingface.co/openai/whisper-large-v2">Whipser-Large-v2</a> model is used for ASR decoding.</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">noisy:&#9;</span><span style="text-align: center; font-family: Menlo;">Input noisy speech</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">excl:&#9;</span><span style="text-align: center; font-family: Menlo;">Enhanced speech from the corpus-exclusive SE model (trained for 20 epochs on 8 kHz data)</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">univ:&#9;</span><span style="text-align: center; font-family: Menlo;">Enhanced speech from the universal SE model (trained for 20 epochs on 8 kHz data)</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">univ+:&#9;</span><span style="text-align: center; font-family: Menlo;">Enhanced speech from the universal SE model (further fine-tuned for 5 epochs with variable sampling frequencies (8, 16, and 24 kHz, achieved via downsampling) on the same data.</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">clean:&#9;</span><span style="text-align: center; font-family: Menlo;">Reference clean speech</span><br/><br/>
+      <table id="exp_table" align="left">
+      <thead> <tr> <th></th> <th>noisy</th> <th>excl</th> <th>univ</th> <th>univ+</th> </tr> </thead>
+      <tbody>
+        <tr> <td><b>PESQ-WB</b></td> <td>1.06</td> <td><u>2.08</u></td> <td>1.90</td> <td><b>2.42</b></td> </tr>
+        <tr> <td><b>STOI</b> (×100)</td> <td>71.8</td> <td><u>95.8</u></td> <td>95.6</td> <td><b>96.1</b></td> </tr>
+        <tr> <td><b>SDR</b> (dB)</td> <td>-4.9</td> <td><b>16.5</b></td> <td>14.6</td> <td><u>16.1</u></td> </tr>
+        <tr> <td><b>DNSMOS OVRL</b></td> <td>1.31</td> <td><b>3.31</b></td> <td>3.18</td> <td><u>3.21</u></td> </tr>
+      </tbody>
+      </table>'
+    - '<br/><b>Note: </b><span>The <a href="https://huggingface.co/openai/whisper-large-v2">Whipser-Large-v2</a> model is used for ASR decoding.</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">noisy:&#9;</span><span style="text-align: center; font-family: Menlo;">Input noisy speech</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">excl:&#9;</span><span style="text-align: center; font-family: Menlo;">Enhanced speech from the corpus-exclusive SE model (trained for 20 epochs on 8 kHz data)</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">univ:&#9;</span><span style="text-align: center; font-family: Menlo;">Enhanced speech from the universal SE model (trained for 20 epochs on 8 kHz data)</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">univ+:&#9;</span><span style="text-align: center; font-family: Menlo;">Enhanced speech from the universal SE model (further fine-tuned for 5 epochs with variable sampling frequencies (8, 16, and 24 kHz, achieved via downsampling) on the same data.</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">clean:&#9;</span><span style="text-align: center; font-family: Menlo;">Reference clean speech</span><br/><br/>
+      <table id="exp_table" align="left">
+      <thead> <tr> <th></th> <th>noisy</th> <th>excl</th> <th>univ</th> <th>univ+</th> </tr> </thead>
+      <tbody>
+        <tr> <td><b>PESQ-WB</b></td> <td>1.07</td> <td><b>2.38</b></td> <td><u>2.36</u></td> <td>2.33</td> </tr>
+        <tr> <td><b>STOI</b> (×100)</td> <td>68.9</td> <td><b>96.0</b></td> <td><u>95.0</u></td> <td>94.9</td> </tr>
+        <tr> <td><b>SDR</b> (dB)</td> <td>-3.0</td> <td><b>14.6</b></td> <td>13.0</td> <td><u>13.8</u></td> </tr>
+        <tr> <td><b>DNSMOS OVRL</b></td> <td>1.12</td> <td><b>3.31</b></td> <td><u>3.16</u></td> <td>3.11</td> </tr>
+      </tbody>
+      </table>'
+    enableLooping: true
+    id: whamr_445c0206_0.60431_22gc0105_-0.60431
+    conditions:
+    - 16 kHz (anechoic)
+    - 16 kHz (reverb)
+    name: (7/10) 445c0206_0.60431_22gc0105_-0.60431 from WHAMR!
+    sampleRate:
+      - 16000
+      - 16000
+    stimuli:
+      - noisy: ./configs/resources/demo_wavs_stereo/noisy/445c0206_0.60431_22gc0105_-0.60431_anechoic_16k.wav
+        excl: ./configs/resources/demo_wavs_stereo/corpus_exclusive/445c0206_0.60431_22gc0105_-0.60431_anechoic_16k.wav
+        univ: ./configs/resources/demo_wavs_stereo/univ/445c0206_0.60431_22gc0105_-0.60431_anechoic_16k.wav
+        univ+: ./configs/resources/demo_wavs_stereo/univ_plus/445c0206_0.60431_22gc0105_-0.60431_anechoic_16k.wav
+        clean: ./configs/resources/demo_wavs_stereo/clean/445c0206_0.60431_22gc0105_-0.60431_anechoic_16k.wav
+      - noisy: ./configs/resources/demo_wavs_stereo/noisy/445c0206_0.60431_22gc0105_-0.60431_reverb_16k.wav
+        excl: ./configs/resources/demo_wavs_stereo/corpus_exclusive/445c0206_0.60431_22gc0105_-0.60431_reverb_16k.wav
+        univ: ./configs/resources/demo_wavs_stereo/univ/445c0206_0.60431_22gc0105_-0.60431_reverb_16k.wav
+        univ+: ./configs/resources/demo_wavs_stereo/univ_plus/445c0206_0.60431_22gc0105_-0.60431_reverb_16k.wav
+        clean: ./configs/resources/demo_wavs_stereo/clean/445c0206_0.60431_22gc0105_-0.60431_reverb_16k.wav
+    spectrogram:
+      - noisy: ./configs/resources/demo_wavs_stereo/noisy/445c0206_0.60431_22gc0105_-0.60431_anechoic_16k.png
+        excl: ./configs/resources/demo_wavs_stereo/corpus_exclusive/445c0206_0.60431_22gc0105_-0.60431_anechoic_16k.png
+        univ: ./configs/resources/demo_wavs_stereo/univ/445c0206_0.60431_22gc0105_-0.60431_anechoic_16k.png
+        univ+: ./configs/resources/demo_wavs_stereo/univ_plus/445c0206_0.60431_22gc0105_-0.60431_anechoic_16k.png
+        clean: ./configs/resources/demo_wavs_stereo/clean/445c0206_0.60431_22gc0105_-0.60431_anechoic_16k.png
+      - noisy: ./configs/resources/demo_wavs_stereo/noisy/445c0206_0.60431_22gc0105_-0.60431_reverb_16k.png
+        excl: ./configs/resources/demo_wavs_stereo/corpus_exclusive/445c0206_0.60431_22gc0105_-0.60431_reverb_16k.png
+        univ: ./configs/resources/demo_wavs_stereo/univ/445c0206_0.60431_22gc0105_-0.60431_reverb_16k.png
+        univ+: ./configs/resources/demo_wavs_stereo/univ_plus/445c0206_0.60431_22gc0105_-0.60431_reverb_16k.png
+        clean: ./configs/resources/demo_wavs_stereo/clean/445c0206_0.60431_22gc0105_-0.60431_reverb_16k.png
+    asr:
+      - noisy: we are not prepared to be advocates for the <font color="red">kgb</font>
+        excl: we are not prepared to be advocates for the <font color="red">kgb</font>
+        univ: we are not prepared to be advocates for the <font color="red">kgb</font>
+        univ+: we are not prepared to be advocates for the <font color="red">kgb</font>
+        clean:  we are not prepared to be advocates for the k g b
+      - noisy: we are not prepared to be advocates for the <font color="red">kgb</font>
+        excl: we are not prepared to be advocates for the <font color="red">kgb</font>
+        univ: we are not prepared to be advocates for the <font color="red">kgb</font>
+        univ+: we are not prepared to be advocates for the <font color="red">kgb</font>
+        clean:  we are not prepared to be advocates for the k g b
+    type: multi_condition_demo
+
+  - colors:
+    - '#ED8C01'
+    - '#007ACC'
+    content:
+    - '<br/><b>Note: </b><span>The <a href="https://huggingface.co/openai/whisper-large-v2">Whipser-Large-v2</a> model is used for ASR decoding.</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">noisy:&#9;</span><span style="text-align: center; font-family: Menlo;">Input noisy speech</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">excl:&#9;</span><span style="text-align: center; font-family: Menlo;">Enhanced speech from the corpus-exclusive SE model (trained for 20 epochs on 8 kHz data)</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">univ:&#9;</span><span style="text-align: center; font-family: Menlo;">Enhanced speech from the universal SE model (trained for 20 epochs on 8 kHz data)</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">univ+:&#9;</span><span style="text-align: center; font-family: Menlo;">Enhanced speech from the universal SE model (further fine-tuned for 5 epochs with variable sampling frequencies (8, 16, and 24 kHz, achieved via downsampling) on the same data.</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">clean:&#9;</span><span style="text-align: center; font-family: Menlo;">Reference clean speech</span><br/><br/>
+      <table id="exp_table" align="left">
+      <thead> <tr> <th></th> <th>noisy</th> <th>excl</th> <th>univ</th> <th>univ+</th> </tr> </thead>
+      <tbody>
+        <tr> <td><b>PESQ-WB</b></td> <td>1.24</td> <td><b>3.31</b></td> <td>3.02</td> <td><u>3.08</u></td> </tr>
+        <tr> <td><b>STOI</b> (×100)</td> <td>71.6</td> <td><b>98.5</b></td> <td><u>97.4</u></td> <td>97.3</td> </tr>
+        <tr> <td><b>SDR</b> (dB)</td> <td>0.7</td> <td><b>22.6</b></td> <td>20.0</td> <td><u>20.7</u></td> </tr>
+        <tr> <td><b>DNSMOS OVRL</b></td> <td>2.12</td> <td><b>3.50</b></td> <td><u>3.39</u></td> <td>3.36</td> </tr>
+      </tbody>
+      </table>'
+    - '<br/><b>Note: </b><span>The <a href="https://huggingface.co/openai/whisper-large-v2">Whipser-Large-v2</a> model is used for ASR decoding.</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">noisy:&#9;</span><span style="text-align: center; font-family: Menlo;">Input noisy speech (CH5)</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">excl:&#9;</span><span style="text-align: center; font-family: Menlo;">Enhanced speech from the corpus-exclusive SE model (trained for 20 epochs on 8 kHz data)</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">univ:&#9;</span><span style="text-align: center; font-family: Menlo;">Enhanced speech from the universal SE model (trained for 20 epochs on 8 kHz data)</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">univ+:&#9;</span><span style="text-align: center; font-family: Menlo;">Enhanced speech from the universal SE model (further fine-tuned for 5 epochs with variable sampling frequencies (8, 16, and 24 kHz, achieved via downsampling) on the same data.</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">clean:&#9;</span><span style="text-align: center; font-family: Menlo;">Recorded close-talk speech in CH0</span><br/><br/>
+      <table id="exp_table" align="left">
+      <thead> <tr> <th></th> <th>noisy</th> <th>excl</th> <th>univ</th> <th>univ+</th> </tr> </thead>
+      <tbody>
+        <tr> <td><b>DNSMOS OVRL</b></td> <td>1.41</td> <td><u>3.02</u></td> <td><b>3.18</b></td> <td>2.97</td> </tr>
+      </tbody>
+      </table>'
+    enableLooping: true
+    id: chime4_M06_441C020F_BUS_SIMU_16k
+    conditions:
+    - 16 kHz (Simu)
+    - 16 kHz (Real)
+    name: (8/10) M06_441C020F_BUS_SIMU_16k from CHiME-4
+    sampleRate:
+      - 16000
+      - 16000
+    stimuli:
+      - noisy: ./configs/resources/demo_wavs_stereo/noisy/M06_441C020F_BUS_SIMU_16k.wav
+        excl: ./configs/resources/demo_wavs_stereo/corpus_exclusive/M06_441C020F_BUS_SIMU_16k.wav
+        univ: ./configs/resources/demo_wavs_stereo/univ/M06_441C020F_BUS_SIMU_16k.wav
+        univ+: ./configs/resources/demo_wavs_stereo/univ_plus/M06_441C020F_BUS_SIMU_16k.wav
+        clean: ./configs/resources/demo_wavs_stereo/clean/M06_441C020F_BUS_SIMU_16k.wav
+      - noisy: ./configs/resources/demo_wavs_stereo/noisy/M06_441C020F_BUS_REAL_16k.wav
+        excl: ./configs/resources/demo_wavs_stereo/corpus_exclusive/M06_441C020F_BUS_REAL_16k.wav
+        univ: ./configs/resources/demo_wavs_stereo/univ/M06_441C020F_BUS_REAL_16k.wav
+        univ+: ./configs/resources/demo_wavs_stereo/univ_plus/M06_441C020F_BUS_REAL_16k.wav
+        clean: ./configs/resources/demo_wavs_stereo/clean/M06_441C020F_BUS_REAL_16k.wav
+    spectrogram:
+      - noisy: ./configs/resources/demo_wavs_stereo/noisy/M06_441C020F_BUS_SIMU_16k.png
+        excl: ./configs/resources/demo_wavs_stereo/corpus_exclusive/M06_441C020F_BUS_SIMU_16k.png
+        univ: ./configs/resources/demo_wavs_stereo/univ/M06_441C020F_BUS_SIMU_16k.png
+        univ+: ./configs/resources/demo_wavs_stereo/univ_plus/M06_441C020F_BUS_SIMU_16k.png
+        clean: ./configs/resources/demo_wavs_stereo/clean/M06_441C020F_BUS_SIMU_16k.png
+      - noisy: ./configs/resources/demo_wavs_stereo/noisy/M06_441C020F_BUS_REAL_16k.png
+        excl: ./configs/resources/demo_wavs_stereo/corpus_exclusive/M06_441C020F_BUS_REAL_16k.png
+        univ: ./configs/resources/demo_wavs_stereo/univ/M06_441C020F_BUS_REAL_16k.png
+        univ+: ./configs/resources/demo_wavs_stereo/univ_plus/M06_441C020F_BUS_REAL_16k.png
+        clean: ./configs/resources/demo_wavs_stereo/clean/M06_441C020F_BUS_REAL_16k.png
+    asr:
+      - noisy: also a move to <font color="red">basic</font> abroad will have tax advantages
+        excl: also a move to <font color="red">basic</font> abroad will have tax advantages
+        univ: also a move to <font color="red">basic</font> abroad will have tax advantages
+        univ+: also a move to <font color="red">basic</font> abroad will have tax advantages
+        clean: also a move to base it abroad will have tax advantages
+      - noisy: also <font color="red">i moved</font> to <font color="red">mason</font> abroad will have tax advantages
+        excl: also a move to base <font color="red">in</font> abroad will have tax advantages
+        univ: also a move to <font color="red">the</font> base <font color="red">and</font> abroad will have tax advantages
+        univ+: also a move to <font color="red">the</font> base <font color="red">and</font> abroad will have tax advantages
+        clean: also a move to base it abroad will have tax advantages
+    type: multi_condition_demo
+
+  - colors:
+    - '#ED8C01'
+    - '#007ACC'
+    content:
+    - '<br/><b>Note: </b><span>The <a href="https://huggingface.co/openai/whisper-large-v2">Whipser-Large-v2</a> model is used for ASR decoding.</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">noisy:&#9;</span><span style="text-align: center; font-family: Menlo;">Input noisy speech</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">excl:&#9;</span><span style="text-align: center; font-family: Menlo;">Enhanced speech from the corpus-exclusive SE model (trained for 20 epochs on 8 kHz data)</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">univ:&#9;</span><span style="text-align: center; font-family: Menlo;">Enhanced speech from the universal SE model (trained for 20 epochs on 8 kHz data)</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">univ+:&#9;</span><span style="text-align: center; font-family: Menlo;">Enhanced speech from the universal SE model (further fine-tuned for 5 epochs with variable sampling frequencies (8, 16, and 24 kHz, achieved via downsampling) on the same data.</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">clean:&#9;</span><span style="text-align: center; font-family: Menlo;">Reference clean speech</span><br/><br/>
+      <table id="exp_table" align="left">
+      <thead> <tr> <th></th> <th>noisy</th> <th>excl</th> <th>univ</th> <th>univ+</th> </tr> </thead>
+      <tbody>
+        <tr> <td><b>PESQ-WB</b></td> <td>1.08</td> <td><b>2.89</b></td> <td>2.64</td> <td><u>2.76</u></td> </tr>
+        <tr> <td><b>STOI</b> (×100)</td> <td>69.8</td> <td><b>99.0</b></td> <td>98.2</td> <td><u>98.2</u></td> </tr>
+        <tr> <td><b>SDR</b> (dB)</td> <td>-2.3</td> <td><b>23.4</b></td> <td>19.2</td> <td><u>22.8</u></td> </tr>
+        <tr> <td><b>DNSMOS OVRL</b></td> <td>1.91</td> <td>2.99</td> <td><u>3.07</u></td> <td><b>3.20</b></td> </tr>
+      </tbody>
+      </table>'
+    - '<br/><b>Note: </b><span>The <a href="https://huggingface.co/openai/whisper-large-v2">Whipser-Large-v2</a> model is used for ASR decoding.</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">noisy:&#9;</span><span style="text-align: center; font-family: Menlo;">Input noisy speech</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">excl:&#9;</span><span style="text-align: center; font-family: Menlo;">Enhanced speech from the corpus-exclusive SE model (trained for 20 epochs on 8 kHz data)</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">univ:&#9;</span><span style="text-align: center; font-family: Menlo;">Enhanced speech from the universal SE model (trained for 20 epochs on 8 kHz data)</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">univ+:&#9;</span><span style="text-align: center; font-family: Menlo;">Enhanced speech from the universal SE model (further fine-tuned for 5 epochs with variable sampling frequencies (8, 16, and 24 kHz, achieved via downsampling) on the same data.</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">clean:&#9;</span><span style="text-align: center; font-family: Menlo;">Recorded close-talk speech in CH0</span><br/><br/>
+      <table id="exp_table" align="left">
+      <thead> <tr> <th></th> <th>noisy</th> <th>excl</th> <th>univ</th> <th>univ+</th> </tr> </thead>
+      <tbody>
+        <tr> <td><b>DNSMOS OVRL</b></td> <td>1.14</td> <td>1.78</td> <td><u>2.38</u></td> <td><b>2.98</b></td> </tr>
+      </tbody>
+      </table>'
+    enableLooping: true
+    id: chime4_F05_442C0210_STR
+    conditions:
+    - 16 kHz (Simu)
+    - 16 kHz (Real)
+    name: (9/10) F05_442C0210_STR from CHiME-4
+    sampleRate:
+      - 16000
+      - 16000
+    stimuli:
+      - noisy: ./configs/resources/demo_wavs_stereo/noisy/F05_442C0210_STR_SIMU_16k.wav
+        excl: ./configs/resources/demo_wavs_stereo/corpus_exclusive/F05_442C0210_STR_SIMU_16k.wav
+        univ: ./configs/resources/demo_wavs_stereo/univ/F05_442C0210_STR_SIMU_16k.wav
+        univ+: ./configs/resources/demo_wavs_stereo/univ_plus/F05_442C0210_STR_SIMU_16k.wav
+        clean: ./configs/resources/demo_wavs_stereo/clean/F05_442C0210_STR_SIMU_16k.wav
+      - noisy: ./configs/resources/demo_wavs_stereo/noisy/F05_442C0210_STR_REAL_16k.wav
+        excl: ./configs/resources/demo_wavs_stereo/corpus_exclusive/F05_442C0210_STR_REAL_16k.wav
+        univ: ./configs/resources/demo_wavs_stereo/univ/F05_442C0210_STR_REAL_16k.wav
+        univ+: ./configs/resources/demo_wavs_stereo/univ_plus/F05_442C0210_STR_REAL_16k.wav
+        clean: ./configs/resources/demo_wavs_stereo/clean/F05_442C0210_STR_REAL_16k.wav
+    spectrogram:
+      - noisy: ./configs/resources/demo_wavs_stereo/noisy/F05_442C0210_STR_SIMU_16k.png
+        excl: ./configs/resources/demo_wavs_stereo/corpus_exclusive/F05_442C0210_STR_SIMU_16k.png
+        univ: ./configs/resources/demo_wavs_stereo/univ/F05_442C0210_STR_SIMU_16k.png
+        univ+: ./configs/resources/demo_wavs_stereo/univ_plus/F05_442C0210_STR_SIMU_16k.png
+        clean: ./configs/resources/demo_wavs_stereo/clean/F05_442C0210_STR_SIMU_16k.png
+      - noisy: ./configs/resources/demo_wavs_stereo/noisy/F05_442C0210_STR_REAL_16k.png
+        excl: ./configs/resources/demo_wavs_stereo/corpus_exclusive/F05_442C0210_STR_REAL_16k.png
+        univ: ./configs/resources/demo_wavs_stereo/univ/F05_442C0210_STR_REAL_16k.png
+        univ+: ./configs/resources/demo_wavs_stereo/univ_plus/F05_442C0210_STR_REAL_16k.png
+        clean: ./configs/resources/demo_wavs_stereo/clean/F05_442C0210_STR_REAL_16k.png
+    asr:
+      - noisy: <font color="red">peter clarence is</font> name &nbsp;&nbsp;&nbsp;&nbsp;
+        excl: he declined to name specific <font color="red">product</font>
+        univ: he declined to name specific products
+        univ+: he declined to name specific products
+        clean: he declined to name specific products
+      - noisy: he declined to name specific products
+        excl: he declined to name specific products
+        univ: he declined to name specific products
+        univ+: he declined to name specific products
+        clean: he declined to name specific products
+    type: multi_condition_demo
+
+  - colors:
+    - '#ED8C01'
+    - '#007ACC'
+    content:
+    - '<br/><b>Note: </b><span>The <a href="https://huggingface.co/openai/whisper-large-v2">Whipser-Large-v2</a> model is used for ASR decoding.</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">noisy:&#9;</span><span style="text-align: center; font-family: Menlo;">Input noisy speech</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">excl:&#9;</span><span style="text-align: center; font-family: Menlo;">Enhanced speech from the corpus-exclusive SE model (trained for 20 epochs on 8 kHz data)</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">univ:&#9;</span><span style="text-align: center; font-family: Menlo;">Enhanced speech from the universal SE model (trained for 20 epochs on 8 kHz data)</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">univ+:&#9;</span><span style="text-align: center; font-family: Menlo;">Enhanced speech from the universal SE model (further fine-tuned for 5 epochs with variable sampling frequencies (8, 16, and 24 kHz, achieved via downsampling) on the same data.</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">clean:&#9;</span><span style="text-align: center; font-family: Menlo;">Reference clean speech</span><br/><br/>
+      <table id="exp_table" align="left">
+      <thead> <tr> <th></th> <th>noisy</th> <th>excl</th> <th>univ</th> <th>univ+</th> </tr> </thead>
+      <tbody>
+        <tr> <td><b>PESQ-WB</b></td> <td>1.24</td> <td>1.42</td> <td><u>1.69</u></td> <td><b>1.73</b></td> </tr>
+        <tr> <td><b>STOI</b> (×100)</td> <td>77.8</td> <td>84.3</td> <td><b>86.5</b></td> <td><u>86.1</u></td> </tr>
+        <tr> <td><b>SDR</b> (dB)</td> <td>3.4</td> <td>5.5</td> <td><b>7.6</b></td> <td><u>7.4</u></td> </tr>
+        <tr> <td><b>DNSMOS OVRL</b></td> <td>1.51</td> <td>2.82</td> <td><b>2.93</b></td> <td><u>2.88</u></td> </tr>
+      </tbody>
+      </table>'
+    - '<br/><b>Note: </b><span>The <a href="https://huggingface.co/openai/whisper-large-v2">Whipser-Large-v2</a> model is used for ASR decoding.</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">noisy:&#9;</span><span style="text-align: center; font-family: Menlo;">Input noisy speech</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">excl:&#9;</span><span style="text-align: center; font-family: Menlo;">Enhanced speech from the corpus-exclusive SE model (trained for 20 epochs on 8 kHz data)</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">univ:&#9;</span><span style="text-align: center; font-family: Menlo;">Enhanced speech from the universal SE model (trained for 20 epochs on 8 kHz data)</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">univ+:&#9;</span><span style="text-align: center; font-family: Menlo;">Enhanced speech from the universal SE model (further fine-tuned for 5 epochs with variable sampling frequencies (8, 16, and 24 kHz, achieved via downsampling) on the same data.</span><br/><br/>
+      <span style="text-align: center; font-family: Menlo; color: blue;">clean:&#9;</span><span style="text-align: center; font-family: Menlo;">Recorded speech at a relatively cleaner channel</span><br/><br/>
+      <table id="exp_table" align="left">
+      <thead> <tr> <th></th> <th>noisy</th> <th>excl</th> <th>univ</th> <th>univ+</th> </tr> </thead>
+      <tbody>
+        <tr> <td><b>DNSMOS OVRL</b></td> <td>1.93</td> <td>1.93</td> <td><u>2.28</u></td> <td><b>2.43</b></td> </tr>
+      </tbody>
+      </table>'
+    enableLooping: true
+    id: reverb_far_room_c3xc020v_t40c020v
+    conditions:
+    - 16 kHz (Simu)
+    - 16 kHz (Real)
+    name: (10/10) c3x_SimData_et_for_8ch_far_room2_c3xc020v & t40_RealData_et_for_8ch_far_room1_t40c020v from REVERB
+    sampleRate:
+      - 16000
+      - 16000
+    stimuli:
+      - noisy: ./configs/resources/demo_wavs_stereo/noisy/c3x_SimData_et_for_8ch_far_room2_c3xc020v_16k.wav
+        excl: ./configs/resources/demo_wavs_stereo/corpus_exclusive/c3x_SimData_et_for_8ch_far_room2_c3xc020v_16k.wav
+        univ: ./configs/resources/demo_wavs_stereo/univ/c3x_SimData_et_for_8ch_far_room2_c3xc020v_16k.wav
+        univ+: ./configs/resources/demo_wavs_stereo/univ_plus/c3x_SimData_et_for_8ch_far_room2_c3xc020v_16k.wav
+        clean: ./configs/resources/demo_wavs_stereo/clean/c3x_SimData_et_for_8ch_far_room2_c3xc020v_16k.wav
+      - noisy: ./configs/resources/demo_wavs_stereo/noisy/t40_RealData_et_for_8ch_far_room1_t40c020v_16k.wav
+        excl: ./configs/resources/demo_wavs_stereo/corpus_exclusive/t40_RealData_et_for_8ch_far_room1_t40c020v_16k.wav
+        univ: ./configs/resources/demo_wavs_stereo/univ/t40_RealData_et_for_8ch_far_room1_t40c020v_16k.wav
+        univ+: ./configs/resources/demo_wavs_stereo/univ_plus/t40_RealData_et_for_8ch_far_room1_t40c020v_16k.wav
+        clean: ./configs/resources/demo_wavs_stereo/clean/t40_RealData_et_for_8ch_far_room1_t40c020v_16k.wav
+    spectrogram:
+      - noisy: ./configs/resources/demo_wavs_stereo/noisy/c3x_SimData_et_for_8ch_far_room2_c3xc020v_16k.png
+        excl: ./configs/resources/demo_wavs_stereo/corpus_exclusive/c3x_SimData_et_for_8ch_far_room2_c3xc020v_16k.png
+        univ: ./configs/resources/demo_wavs_stereo/univ/c3x_SimData_et_for_8ch_far_room2_c3xc020v_16k.png
+        univ+: ./configs/resources/demo_wavs_stereo/univ_plus/c3x_SimData_et_for_8ch_far_room2_c3xc020v_16k.png
+        clean: ./configs/resources/demo_wavs_stereo/clean/c3x_SimData_et_for_8ch_far_room2_c3xc020v_16k.png
+      - noisy: ./configs/resources/demo_wavs_stereo/noisy/t40_RealData_et_for_8ch_far_room1_t40c020v_16k.png
+        excl: ./configs/resources/demo_wavs_stereo/corpus_exclusive/t40_RealData_et_for_8ch_far_room1_t40c020v_16k.png
+        univ: ./configs/resources/demo_wavs_stereo/univ/t40_RealData_et_for_8ch_far_room1_t40c020v_16k.png
+        univ+: ./configs/resources/demo_wavs_stereo/univ_plus/t40_RealData_et_for_8ch_far_room1_t40c020v_16k.png
+        clean: ./configs/resources/demo_wavs_stereo/clean/t40_RealData_et_for_8ch_far_room1_t40c020v_16k.png
+    asr:
+      - noisy: if they had wanted to sell the company it would have been done earlier <font color="red">annalise</font> said
+        excl: if they had wanted to sell the company it would have been done earlier <font color="red">anliss</font> said
+        univ: if they had wanted to sell the company it would have been done earlier <font color="red">anliff</font> said
+        univ+: if they had wanted to sell the company it would have been done earlier <font color="red">anliss</font> said
+        clean: if they had wanted to sell the company it would have been done earlier analysts said
+      - noisy: if they had wanted to sell the company it would have been done earlier analysts said
+        excl: if they had wanted to sell the company it would have been done earlier analysts said
+        univ: if they had wanted to sell the company it would have been done earlier analysts said
+        univ+: if they had wanted to sell the company it would have been done earlier analysts said
+        clean: if they had wanted to sell the company it would have been done earlier analysts said
+    type: multi_condition_demo
+
+showWaveform: true
+stopOnErrors: true
+testId: demo
+testname: demo for ASRU 2023 submission
